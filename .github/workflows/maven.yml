@@ -19,7 +19,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build 
-    -  run: mvn clean install
+    - run: mvn clean install
     - uses: actions/upload-artifact@v3
     - name: test
     - run: mvn test
