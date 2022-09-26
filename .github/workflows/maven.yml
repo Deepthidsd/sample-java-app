@@ -19,15 +19,11 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build 
-    - run: mvn clean install
-    - uses: actions/upload-artifact@v3
+      run: mvn clean install
+    
     - name: test
-    - run: mvn test
-    - uses: actions/upload-artifact@v3
+      run: mvn test
+   
     - name: package   
-    - run: mvn package
-    - run: mkdir staging && cp target/*.jar staging
-    - uses: actions/upload-artifact@v3
-      with:
-          name: Package
-          path: staging
+      run: mvn package
+    
