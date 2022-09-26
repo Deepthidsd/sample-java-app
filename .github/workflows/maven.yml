@@ -23,4 +23,9 @@ jobs:
     - name: test
       run: mvn test
     - name: package   
-      run: mvn package
+    - run: mvn package
+    - run: mkdir staging && cp target/*.jar staging
+    - uses: actions/upload-artifact@v3
+      with:
+          name: Package
+          path: staging
