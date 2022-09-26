@@ -27,6 +27,6 @@ jobs:
     - name: package   
       run: |
         mvn package
-        ls
+        ls target/
      
     
