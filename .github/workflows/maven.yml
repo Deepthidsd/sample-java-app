@@ -32,4 +32,6 @@ jobs:
       with:
          name: package
          path: /home/runner/work/sample-java-app/sample-java-app/target/sample-0.0.1-SNAPSHOT.jar
+    - name: deploy
+      run: mvn deploy
     
