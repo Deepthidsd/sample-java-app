@@ -32,6 +32,22 @@ jobs:
       with:
          name: package
          path: /home/runner/work/sample-java-app/sample-java-app/target/sample-0.0.1-SNAPSHOT.jar
-    - name: deploy
-      run: mvn deploy
+    - name: Deploy on AWS EC2
+      env:
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY  }}
+          HOSTNAME: ${{ secrets.HOSTNAME  }}
+          USER_NAME: ${{ secrets.USERNAME  }}
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+      run: |
+          echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
+          ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@${HOSTNAME} '
+            rm -rf /home/ubuntu/<your-repo-name>
+           # git clone <your-repo-link>.git
+           # cd <your-repo>
+           # git checkout master
+           # git pull origin master
+            sudo chmod +x ./deploy.sh
+            ./deploy.sh
+          '
+          rm -rf private_key.pem
     
