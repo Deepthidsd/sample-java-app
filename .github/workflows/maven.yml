@@ -43,6 +43,6 @@ jobs:
           ls -lrth
           ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@43.205.138.200 
           scp  /home/runner/work/sample-java-app/sample-java-app/target/sample-0.0.1-SNAPSHOT.jar@43.205.138.200
-
+#
          
    
