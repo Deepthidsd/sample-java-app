@@ -44,7 +44,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@13.127.82.20
           mkdir javafiles
           ls 
-          scp -i private_key.pem /home/runner/work/sample-java-app/sample-java-app/target/sample-0.0.1-SNAPSHOT.jar ubuntu@13.127.82.20:javafiles
+          scp -i private_key.pem /home/runner/work/sample-java-app/sample-java-app/target/sample-0.0.1-SNAPSHOT.jar ubuntu@13.127.82.20:/home/ubuntu/javafile
           
    
 
