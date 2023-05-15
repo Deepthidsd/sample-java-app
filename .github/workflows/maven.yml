@@ -31,17 +31,17 @@ jobs:
       with:
          name: package
          path: /home/runner/work/sample-java-app/sample-java-app/target/sample-0.0.1-SNAPSHOT.jar
- #   - name: Deploy on AWS EC2
- #     env:
-  #        PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY  }}
-  #        HOSTNAME: ${{ secrets.HOSTNAME  }}
-  #        USER_NAME: ${{ secrets.USERNAME  }}
+    - name: Deploy on AWS EC2
+      env:
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY  }}
+          HOSTNAME: ${{ secrets.HOSTNAME  }}
+          USER_NAME: ${{ secrets.USERNAME  }}
          
-  #    run: |
-  #       echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
-  #       ls -lrth
- #        ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@13.127.44.56 
- #        scp -i private_key.pem /home/runner/work/sample-java-app/sample-java-app/target/sample-0.0.1-SNAPSHOT.jar ubuntu@13.127.44.56:/home/ubuntu/javafile
+      run: |
+          echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
+          ls -lrth
+          ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@13.127.44.56 
+          scp -i private_key.pem /home/runner/work/sample-java-app/sample-java-app/target/sample-0.0.1-SNAPSHOT.jar ubuntu@13.127.44.56:/home/ubuntu/javafile
           
    
 
